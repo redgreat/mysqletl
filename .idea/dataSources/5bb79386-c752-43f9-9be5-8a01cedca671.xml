@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="TiDB-Cloud">
+  <database-model serializer="dbm" dbms="TIDB" family-id="TIDB" format-version="4.41">
+    <root id="1">
+      <Dbms>TIDB</Dbms>
+      <DefaultCasing>mixed/mixed</DefaultCasing>
+      <DefaultEngine>InnoDB</DefaultEngine>
+      <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
+      <Grants>|root||2VGr71AdbLZb9Ms.root||ALTER|G
+|root||cloud_admin||ALTER|G
+|root||root||ALTER|G
+|root||2VGr71AdbLZb9Ms.root||ALTER ROUTINE|G
+|root||root||ALTER ROUTINE|G
+|root||cloud_admin||BACKUP_ADMIN|G
+|root||cloud_admin||CONFIG|G
+|root||cloud_admin||CONNECTION_ADMIN|G
+|root||2VGr71AdbLZb9Ms.root||CREATE|G
+|root||cloud_admin||CREATE|G
+|root||root||CREATE|G
+|root||2VGr71AdbLZb9Ms.root||CREATE ROLE|G
+|root||root||CREATE ROLE|G
+|root||2VGr71AdbLZb9Ms.root||CREATE ROUTINE|G
+|root||root||CREATE ROUTINE|G
+|root||2VGr71AdbLZb9Ms.root||CREATE TABLESPACE|G
+|root||root||CREATE TABLESPACE|G
+|root||2VGr71AdbLZb9Ms.root||CREATE TEMPORARY TABLES|G
+|root||root||CREATE TEMPORARY TABLES|G
+|root||2VGr71AdbLZb9Ms.root||CREATE USER|G
+|root||cloud_admin||CREATE USER|G
+|root||root||CREATE USER|G
+|root||2VGr71AdbLZb9Ms.root||CREATE VIEW|G
+|root||cloud_admin||CREATE VIEW|G
+|root||root||CREATE VIEW|G
+|root||cloud_admin||DASHBOARD_CLIENT|G
+|root||2VGr71AdbLZb9Ms.root||DELETE|G
+|root||cloud_admin||DELETE|G
+|root||root||DELETE|G
+|root||2VGr71AdbLZb9Ms.root||DROP|G
+|root||cloud_admin||DROP|G
+|root||root||DROP|G
+|root||2VGr71AdbLZb9Ms.root||DROP ROLE|G
+|root||root||DROP ROLE|G
+|root||2VGr71AdbLZb9Ms.root||EVENT|G
+|root||root||EVENT|G
+|root||2VGr71AdbLZb9Ms.root||EXECUTE|G
+|root||root||EXECUTE|G
+|root||2VGr71AdbLZb9Ms.root||FILE|G
+|root||root||FILE|G
+|root||2VGr71AdbLZb9Ms.root||INDEX|G
+|root||cloud_admin||INDEX|G
+|root||root||INDEX|G
+|root||2VGr71AdbLZb9Ms.root||INSERT|G
+|root||cloud_admin||INSERT|G
+|root||root||INSERT|G
+|root||2VGr71AdbLZb9Ms.root||LOCK TABLES|G
+|root||root||LOCK TABLES|G
+|root||2VGr71AdbLZb9Ms.root||PROCESS|G
+|root||cloud_admin||PROCESS|G
+|root||root||PROCESS|G
+|root||2VGr71AdbLZb9Ms.root||REFERENCES|G
+|root||root||REFERENCES|G
+|root||2VGr71AdbLZb9Ms.root||RELOAD|G
+|root||cloud_admin||RELOAD|G
+|root||root||RELOAD|G
+|root||2VGr71AdbLZb9Ms.root||REPLICATION CLIENT|G
+|root||root||REPLICATION CLIENT|G
+|root||2VGr71AdbLZb9Ms.root||REPLICATION SLAVE|G
+|root||root||REPLICATION SLAVE|G
+|root||cloud_admin||RESTORE_ADMIN|G
+|root||cloud_admin||RESTRICTED_CONNECTION_ADMIN|G
+|root||cloud_admin||RESTRICTED_REPLICA_WRITER_ADMIN|G
+|root||cloud_admin||RESTRICTED_STATUS_ADMIN|G
+|root||cloud_admin||RESTRICTED_TABLES_ADMIN|G
+|root||cloud_admin||RESTRICTED_USER_ADMIN|G
+|root||cloud_admin||RESTRICTED_VARIABLES_ADMIN|G
+|root||2VGr71AdbLZb9Ms.root||SELECT|G
+|root||cloud_admin||SELECT|G
+|root||root||SELECT|G
+|root||2VGr71AdbLZb9Ms.root||SHOW DATABASES|G
+|root||cloud_admin||SHOW DATABASES|G
+|root||root||SHOW DATABASES|G
+|root||2VGr71AdbLZb9Ms.root||SHOW VIEW|G
+|root||root||SHOW VIEW|G
+|root||cloud_admin||SHUTDOWN|G
+|root||2VGr71AdbLZb9Ms.root||SUPER|G
+|root||root||SUPER|G
+|root||cloud_admin||SYSTEM_VARIABLES_ADMIN|G
+|root||2VGr71AdbLZb9Ms.root||TRIGGER|G
+|root||root||TRIGGER|G
+|root||2VGr71AdbLZb9Ms.root||UPDATE|G
+|root||cloud_admin||UPDATE|G
+|root||root||UPDATE|G
+|root||2VGr71AdbLZb9Ms.root||grant option|G
+|root||root||grant option|G</Grants>
+      <ServerVersion>6.2.0</ServerVersion>
+    </root>
+    <collation id="2" parent="1" name="ascii_bin">
+      <Charset>ascii</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="3" parent="1" name="binary">
+      <Charset>binary</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="4" parent="1" name="gbk_bin">
+      <Charset>gbk</Charset>
+    </collation>
+    <collation id="5" parent="1" name="gbk_chinese_ci">
+      <Charset>gbk</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="6" parent="1" name="latin1_bin">
+      <Charset>latin1</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="7" parent="1" name="utf8_bin">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="8" parent="1" name="utf8_general_ci">
+      <Charset>utf8</Charset>
+    </collation>
+    <collation id="9" parent="1" name="utf8_unicode_ci">
+      <Charset>utf8</Charset>
+    </collation>
+    <collation id="10" parent="1" name="utf8mb4_bin">
+      <Charset>utf8mb4</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="11" parent="1" name="utf8mb4_general_ci">
+      <Charset>utf8mb4</Charset>
+    </collation>
+    <collation id="12" parent="1" name="utf8mb4_unicode_ci">
+      <Charset>utf8mb4</Charset>
+    </collation>
+    <schema id="13" parent="1" name="INFORMATION_SCHEMA">
+      <CollationName>utf8mb4_bin</CollationName>
+    </schema>
+    <schema id="14" parent="1" name="PERFORMANCE_SCHEMA">
+      <CollationName>utf8mb4_bin</CollationName>
+    </schema>
+    <schema id="15" parent="1" name="mysql">
+      <CollationName>utf8mb4_bin</CollationName>
+    </schema>
+    <schema id="16" parent="1" name="oawong">
+      <CollationName>utf8mb4_bin</CollationName>
+    </schema>
+    <schema id="17" parent="1" name="rpcenters">
+      <CollationName>utf8mb4_bin</CollationName>
+    </schema>
+    <schema id="18" parent="1" name="test">
+      <CollationName>utf8mb4_bin</CollationName>
+    </schema>
+    <schema id="19" parent="1" name="testwong">
+      <Current>1</Current>
+      <CollationName>utf8mb4_bin</CollationName>
+    </schema>
+    <user id="20" parent="1" name="2VGr71AdbLZb9Ms.root"/>
+    <user id="21" parent="1" name="cloud_admin"/>
+    <user id="22" parent="1" name="root"/>
+  </database-model>
+</dataSource>
