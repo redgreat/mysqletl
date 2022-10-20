@@ -12,10 +12,10 @@ import logging.handlers
 logger = logging.getLogger('pyetllog')
 logger.setLevel(logging.DEBUG)
 
-rf_handler = logging.handlers.TimedRotatingFileHandler('logs/all.log', when='midnight', interval=1, backupCount=7, atTime=datetime.time(0, 0, 0, 0))
+rf_handler = logging.handlers.TimedRotatingFileHandler('../logs/all.log', when='midnight', interval=1, backupCount=7, atTime=datetime.time(0, 0, 0, 0))
 rf_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
 
-f_handler = logging.FileHandler('logs/error.log')
+f_handler = logging.FileHandler('../logs/error.log')
 f_handler.setLevel(logging.ERROR)
 f_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(filename)s[:%(lineno)d] - %(message)s"))
 
@@ -39,30 +39,21 @@ in_betchnum = int(in_betchnum)
 
 """定义连接地址"""
 try:
-
     db_src = pymysql.connect(host='',
-                            database=in_src_dbname,
-                            user='',
-                            password='',
-                            charset='utf8')
+                             database=in_src_dbname,
+                             user='',
+                             password='',
+                             charset='utf8')
 
 except Exception as db_error:
     print ("{}:源库连接失败：错误原因：{}".format(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())),db_error))
     logger.error("源库连接失败,错误原因:{}".format(db_error))
 try:
     db_tar = pymysql.connect(host='',
-                             #port=4000,
                              database=in_tar_dbname,
                              user='',
                              password='',
-                             charset='')
-
-    #db_tar = pymysql.connect(host='',
-    #                         port=3306,
-    #                         database='testwong',
-    #                         user='root',
-    #                         password='',
-    #                         charset='utf8')
+                             charset='utf8')
 
 except Exception as db_error:
     print ("{}:目标库连接失败：错误原因：{}".format(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())),db_error))
@@ -108,10 +99,7 @@ cur_tar_dict = db_tar.cursor(cursor=pymysql.cursors.DictCursor)
 cur_src_dic = db_src.cursor(cursor=pymysql.cursors.DictCursor)
 if is_alltable == 'Y':
     """获所有表"""
-    sql_get_tables = """SELECT TABLE_NAME 
-               FROM INFORMATION_SCHEMA.TABLES 
-               WHERE TABLE_SCHEMA=\'{}\' 
-               AND TABLE_TYPE=\'BASE TABLE\'""".format(in_src_dbname)
+    sql_get_tables = 'SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=\'{}\' AND TABLE_TYPE=\'BASE TABLE\''.format(in_src_dbname)
 
     cur_src_dic.execute(sql_get_tables)
     src_table = cur_src_dic.fetchall()
@@ -137,9 +125,7 @@ if is_alltable == 'Y':
     #     print ("{}:目标数据库{}在目标实例不存在，并创建失败！").format(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())),in_tar_dbname)
 elif is_alltable == 'N':
     """获所有表"""
-    sql_get_tables = """SELECT TABLE_NAME
-               FROM tm_ifmovedata
-               WHERE 1=1 ;"""
+    sql_get_tables = 'SELECT TABLE_NAME FROM tm_ifmovedata WHERE 1=1 ;'
 
     cur_src_dic.execute(sql_get_tables)
     src_table = cur_src_dic.fetchall()
@@ -155,7 +141,7 @@ for tb_name_dic in src_table:
     res = 0
     tb_name = tb_name_dic.get('TABLE_NAME')
     """获取表结构"""
-    sql_show_table = """SHOW CREATE TABLE `{}`;""".format(tb_name)
+    sql_show_table = 'SHOW CREATE TABLE `{}`;'.format(tb_name)
 
     """开启游标(防止数据迁移占用连接时间太久，每张表单独开一次)"""
     cur_src_dic = db_src.cursor(cursor=pymysql.cursors.DictCursor)
@@ -173,7 +159,8 @@ for tb_name_dic in src_table:
     tb_desc = cur_src_dic.fetchone().get('Create Table')
 
     """创建表语句生成"""
-    sql_create_tartable = """SET FOREIGN_KEY_CHECKS = 0; DROP TABLE IF EXISTS `{}`;\n{}; SET FOREIGN_KEY_CHECKS = 1;""".format(tb_name,tb_desc)
+    sql_drop_tartable = 'DROP TABLE IF EXISTS `{}`;'.format(tb_name)
+    sql_create_tartable = '{};'.format(tb_desc)
 
     """检查源表结构 (仅目标为异构数据库使用，入TiDB)"""
     """
@@ -187,28 +174,25 @@ for tb_name_dic in src_table:
     """
 
     """检查目标表是否有此表"""
-    sql_check_tartable = """SELECT TABLE_NAME
-    FROM INFORMATION_SCHEMA.TABLES
-    WHERE TABLE_SCHEMA = \'{}\'
-    AND TABLE_TYPE = \'BASE TABLE\'
-    AND TABLE_NAME = \'{}\';""".format(in_tar_dbname,tb_name)
+    sql_check_tartable = 'SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = \'{}\' AND TABLE_TYPE = \'BASE TABLE\' AND TABLE_NAME = \'{}\';'.format(in_tar_dbname,tb_name)
 
     """检查源库配置表(0只迁表结构,1迁移数据和表结构)"""
-    sql_withdata_srctable = """SELECT `IF_DATA`
-    FROM `tm_ifmovedata`
-    WHERE `TABLE_NAME` = \'{}\'
-    LIMIT 1;""".format(tb_name)
+    sql_withdata_srctable = 'SELECT `IF_DATA` FROM `tm_ifmovedata` WHERE `TABLE_NAME` = \'{}\' LIMIT 1;'.format(tb_name)
 
     if not cur_tar.execute(sql_check_tartable):
         try:
             #print ("{}:执行建表{}...".format(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())),tb_name))
             logger.debug("执行建表{}...".format(tb_name))
+            cur_tar.execute('SET FOREIGN_KEY_CHECKS = 0;')
+            cur_tar.execute(sql_drop_tartable)
             cur_tar.execute(sql_create_tartable)
+            cur_tar.execute('SET FOREIGN_KEY_CHECKS = 1;')
             db_tar.commit()
             #print ("{}:表{}创建成功...".format(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())),tb_name))
             logger.debug("表{}创建成功...".format(tb_name))
             res = 1
         except Exception as db_error:
+            cur_tar.execute('SET FOREIGN_KEY_CHECKS = 1;')
             db_tar.rollback()
             res = -1
             print( "{}:表{}迁移失败，建表语句：\n{}\n错误：\"{}\"".format(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())), tb_name, sql_create_tartable, db_error))
@@ -218,7 +202,8 @@ for tb_name_dic in src_table:
         #print ("{}:目标库表{}已存在，直接进行数据迁移...".format(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())),tb_name))
         logger.debug("目标库表{}已存在，直接进行数据迁移...".format(tb_name))
     cur_src_dic.execute(sql_withdata_srctable)
-    if_data = cur_src_dic.fetchone().get('IF_DATA')
+    if_data_dic = cur_src_dic.fetchone()
+    if_data = if_data_dic.get('IF_DATA') if if_data_dic is not None else 0
 
     if (res == 0 or res == 1) and (if_data != 0):
 
@@ -228,11 +213,7 @@ for tb_name_dic in src_table:
         #tb_cont = cur_src_dic.fetchone().get('cnt')
 
         """获取表所有列"""
-        sql_column_table = """SELECT COLUMN_NAME AS src_column_name,COLUMN_TYPE AS src_column_type
-        FROM INFORMATION_SCHEMA.COLUMNS
-        WHERE TABLE_SCHEMA = \'{}\'
-          AND TABLE_NAME = \'{}\'
-        ORDER BY ORDINAL_POSITION;""".format(in_src_dbname,tb_name)
+        sql_column_table = 'SELECT COLUMN_NAME AS src_column_name,COLUMN_TYPE AS src_column_type FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = \'{}\' AND TABLE_NAME = \'{}\' ORDER BY ORDINAL_POSITION;'.format(in_src_dbname,tb_name)
 
         cur_src_dic.execute(sql_column_table)
         src_columns = cur_src_dic.fetchall()
@@ -245,13 +226,16 @@ for tb_name_dic in src_table:
         #src_column_concat = ','.join(['`' + str(src_column.get('src_column_name')) + '`' for src_column in src_columns])
 
         """清空目标表数据"""
-        sql_truncate_tartable = """SET FOREIGN_KEY_CHECKS = 0; TRUNCATE TABLE `{}`; SET FOREIGN_KEY_CHECKS = 1;""".format(tb_name)
+        sql_truncate_tartable = 'TRUNCATE TABLE `{}`;'.format(tb_name)
         try:
+            cur_tar.execute('SET FOREIGN_KEY_CHECKS = 0;')
             cur_tar.execute(sql_truncate_tartable)
+            cur_tar.execute('SET FOREIGN_KEY_CHECKS = 1;')
             db_tar.commit()
             #print ("{}:目标表{}已清空！...".format(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())),tb_name))
             logger.debug("目标表{}已清空！...".format(tb_name))
         except Exception as db_error:
+            cur_tar.execute('SET FOREIGN_KEY_CHECKS = 1;')
             db_tar.rollback()
             print ("{}:清空目标表{}失败！".format(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())),tb_name))
             logger.error("清空目标表{}失败！".format(tb_name))
@@ -261,15 +245,14 @@ for tb_name_dic in src_table:
         is_continue = 1
         while is_continue != 0:
 
-            sql_values_srcdata = """SELECT {}
-            FROM `{}`
-            LIMIT {},{};""".format(src_column_concat,tb_name,i,in_betchnum)
+            sql_values_srcdata = 'SELECT {} FROM `{}` LIMIT {},{};'.format(src_column_concat,tb_name,i,in_betchnum)
             i = i + in_betchnum
-            sql_values_tardata = """INSERT INTO `{}` ({}) VALUES """.format(tb_name,src_column_concat)
+            sql_values_tardata = 'INSERT INTO `{}` ({}) VALUES '.format(tb_name,src_column_concat)
 
             try:
                 cur_src_dic.execute(sql_values_srcdata)
                 dic_values_srcdata = cur_src_dic.fetchall()
+                b_cnt = 0
                 if dic_values_srcdata:
                     row_strc = ''
                     for row_data in dic_values_srcdata:
@@ -279,7 +262,7 @@ for tb_name_dic in src_table:
                             ct = columnnt.get('src_column_type')
                             if ct.count('char') > 0 or ct.count('text') > 0 or ct.count('json') > 0:
                                 if cv is not None:
-                                    cv = cv.replace('\\','\\\\').replace('\'','\\\'').replace('\"','\\\"')
+                                    cv = cv.replace('\\','\\\\').replace('\'','\\\'').replace('\"','\\\"').replace('\\','\\')
                                 row_str = '\'' + str(cv) + '\''
                             #elif ct.count('text') > 0:
                             #    if cv is not None:
@@ -330,10 +313,7 @@ for tb_name_dic in src_table:
 cur_src_dic = db_src.cursor(cursor=pymysql.cursors.DictCursor)
 cur_tar = db_tar.cursor()
 """获取所有函数"""
-sql_get_function = """SELECT ROUTINE_NAME 
-           FROM INFORMATION_SCHEMA.ROUTINES 
-           WHERE ROUTINE_SCHEMA=\'{}\' 
-           AND  ROUTINE_TYPE = \'FUNCTION\';""".format(in_src_dbname)
+sql_get_function = 'SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES WHERE ROUTINE_SCHEMA=\'{}\' AND  ROUTINE_TYPE = \'FUNCTION\';'.format(in_src_dbname)
 
 cur_src_dic.execute(sql_get_function)
 src_fun = cur_src_dic.fetchall()
@@ -341,14 +321,16 @@ src_fun = cur_src_dic.fetchall()
 for fun_name_dic in src_fun:
     fun_name = fun_name_dic.get('ROUTINE_NAME')
     """函数创建语句"""
-    sql_show_function = """SHOW CREATE FUNCTION `{}`;""".format(fun_name)
+    sql_show_function = 'SHOW CREATE FUNCTION `{}`;'.format(fun_name)
 
     cur_src_dic.execute(sql_show_function)
     fun_desc = cur_src_dic.fetchone().get('Create Function')
 
-    sql_create_function = """DROP FUNCTION IF EXISTS `{}`;\n{}""".format(fun_name,fun_desc)
+    sql_drop_function = 'DROP FUNCTION IF EXISTS `{}`;'.format(fun_name)
+    sql_create_function = '{};'.format(fun_desc)
 
     try:
+        cur_tar.execute(sql_drop_function)
         cur_tar.execute(sql_create_function)
         db_tar.commit()
         print ("{}:函数{}创建成功...".format(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())),fun_name))
@@ -364,9 +346,7 @@ cur_tar.close()
 cur_src_dic = db_src.cursor(cursor=pymysql.cursors.DictCursor)
 cur_tar = db_tar.cursor()
 """获取所有视图"""
-sql_get_view = """SELECT TABLE_NAME 
-           FROM INFORMATION_SCHEMA.VIEWS 
-           WHERE TABLE_SCHEMA=\'{}\';""".format(in_src_dbname)
+sql_get_view = 'SELECT TABLE_NAME FROM INFORMATION_SCHEMA.VIEWS WHERE TABLE_SCHEMA=\'{}\';'.format(in_src_dbname)
 
 cur_src_dic.execute(sql_get_view)
 src_view = cur_src_dic.fetchall()
@@ -374,14 +354,16 @@ src_view = cur_src_dic.fetchall()
 for view_name_dic in src_view:
     view_name = view_name_dic.get('TABLE_NAME')
     """视图创建语句"""
-    sql_show_view = """SHOW CREATE VIEW `{}`;""".format(view_name)
+    sql_show_view = 'SHOW CREATE VIEW `{}`;'.format(view_name)
 
     cur_src_dic.execute(sql_show_view)
     view_desc = cur_src_dic.fetchone().get('Create View')
 
-    sql_create_view = """DROP VIEW IF EXISTS `{}`;\n{}""".format(view_name,view_desc)
+    sql_drop_view = 'DROP VIEW IF EXISTS `{}`;'.format(view_name)
+    sql_create_view = '{};'.format(view_desc)
 
     try:
+        cur_tar.execute(sql_drop_view)
         cur_tar.execute(sql_create_view)
         db_tar.commit()
         print ("{}:视图{}创建成功...".format(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())),view_name))
@@ -397,10 +379,7 @@ cur_tar.close()
 cur_src_dic = db_src.cursor(cursor=pymysql.cursors.DictCursor)
 cur_tar = db_tar.cursor()
 """获取所有过程"""
-sql_get_proc = """SELECT ROUTINE_NAME 
-           FROM INFORMATION_SCHEMA.ROUTINES 
-           WHERE ROUTINE_SCHEMA=\'{}\' 
-           AND  ROUTINE_TYPE = \'PROCEDURE\';""".format(in_src_dbname)
+sql_get_proc = 'SELECT ROUTINE_NAME FROM INFORMATION_SCHEMA.ROUTINES WHERE ROUTINE_SCHEMA=\'{}\' AND  ROUTINE_TYPE = \'PROCEDURE\';'.format(in_src_dbname)
 
 cur_src_dic.execute(sql_get_proc)
 src_proc = cur_src_dic.fetchall()
@@ -408,14 +387,16 @@ src_proc = cur_src_dic.fetchall()
 for proc_name_dic in src_proc:
     proc_name = proc_name_dic.get('ROUTINE_NAME')
     """过程创建语句"""
-    sql_show_proc = """SHOW CREATE PROCEDURE `{}`;""".format(proc_name)
+    sql_show_proc = 'SHOW CREATE PROCEDURE `{}`;'.format(proc_name)
 
     cur_src_dic.execute(sql_show_proc)
     proc_desc = cur_src_dic.fetchone().get('Create Procedure')
 
-    sql_create_proc = """DROP PROCEDURE IF EXISTS `{}`;\n{}""".format(proc_name,proc_desc)
+    sql_drop_proc = 'DROP PROCEDURE IF EXISTS `{}`;'.format(proc_name)
+    sql_create_proc = '{};'.format(proc_desc)
 
     try:
+        cur_tar.execute(sql_drop_proc)
         cur_tar.execute(sql_create_proc)
         db_tar.commit()
         print ("{}:存储过程{}创建成功...".format(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())),proc_name))
@@ -432,9 +413,7 @@ cur_tar.close()
 cur_src_dic = db_src.cursor(cursor=pymysql.cursors.DictCursor)
 cur_tar = db_tar.cursor()
 """获取所有作业"""
-sql_get_event = """SELECT EVENT_NAME 
-           FROM INFORMATION_SCHEMA.EVENTS 
-           WHERE EVENT_SCHEMA=\'{}\';""".format(in_src_dbname)
+sql_get_event = 'SELECT EVENT_NAME FROM INFORMATION_SCHEMA.EVENTS WHERE EVENT_SCHEMA=\'{}\';'.format(in_src_dbname)
 
 cur_src_dic.execute(sql_get_event)
 src_event = cur_src_dic.fetchall()
@@ -442,15 +421,17 @@ src_event = cur_src_dic.fetchall()
 for event_name_dic in src_event:
     event_name = event_name_dic.get('EVENT_NAME')
     """过程创建语句"""
-    sql_show_event = """SHOW CREATE EVENT `{}`;""".format(event_name)
+    sql_show_event = 'SHOW CREATE EVENT `{}`;'.format(event_name)
 
     cur_src_dic.execute(sql_show_event)
     event_desc = cur_src_dic.fetchone().get('Create Event')
 
-    sql_create_event = """DROP EVENT IF EXISTS `{}`;\n{}""".format(event_name,event_desc)
+    sql_drop_event = 'DROP EVENT IF EXISTS `{}`;'.format(event_name)
+    sql_create_event = '{};'.format(event_desc)
     sql_create_event = sql_create_event.replace('ENABLE','DISABLE')
 
     try:
+        cur_tar.execute(sql_drop_event)
         cur_tar.execute(sql_create_event)
         db_tar.commit()
         print ("{}:作业{}创建成功...".format(time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())),event_name))

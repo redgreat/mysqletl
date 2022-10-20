@@ -59,7 +59,7 @@ def print_run_time(func):
         r = func(*args, **kwargs)
         cost = time.time() - start
         cost = round(cost, 3)
-        print(f"{func.__name__}函数执行了{cost}s")
+        #print(f"{func.__name__}函数执行了{cost}s")
         return r
     return wrapper
 
