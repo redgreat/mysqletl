@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="TiCloud@msn">
+  <database-model serializer="dbm" dbms="TIDB" family-id="TIDB" format-version="4.48">
+    <root id="1">
+      <Dbms>TIDB</Dbms>
+      <DefaultCasing>mixed/mixed</DefaultCasing>
+      <DefaultEngine>InnoDB</DefaultEngine>
+      <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
+      <Grants>|root||cloud_admin||ALTER|G
+|root||role_admin||ALTER|G
+|root||s49scd8yqRkHgCX.playground||ALTER|G
+|root||s49scd8yqRkHgCX.root||ALTER|G
+|root||role_admin||ALTER ROUTINE|G
+|root||s49scd8yqRkHgCX.root||ALTER ROUTINE|G
+|root||cloud_admin||BACKUP_ADMIN|G
+|root||cloud_admin||CONFIG|G
+|root||cloud_admin||CONNECTION_ADMIN|G
+|root||cloud_admin||CREATE|G
+|root||role_admin||CREATE|G
+|root||s49scd8yqRkHgCX.playground||CREATE|G
+|root||s49scd8yqRkHgCX.root||CREATE|G
+|root||cloud_admin||CREATE ROLE|G
+|root||role_admin||CREATE ROLE|G
+|root||s49scd8yqRkHgCX.root||CREATE ROLE|G
+|root||role_admin||CREATE ROUTINE|G
+|root||s49scd8yqRkHgCX.root||CREATE ROUTINE|G
+|root||role_admin||CREATE TABLESPACE|G
+|root||s49scd8yqRkHgCX.root||CREATE TABLESPACE|G
+|root||role_admin||CREATE TEMPORARY TABLES|G
+|root||s49scd8yqRkHgCX.root||CREATE TEMPORARY TABLES|G
+|root||cloud_admin||CREATE USER|G
+|root||role_admin||CREATE USER|G
+|root||s49scd8yqRkHgCX.root||CREATE USER|G
+|root||cloud_admin||CREATE VIEW|G
+|root||role_admin||CREATE VIEW|G
+|root||s49scd8yqRkHgCX.playground||CREATE VIEW|G
+|root||s49scd8yqRkHgCX.root||CREATE VIEW|G
+|root||cloud_admin||DASHBOARD_CLIENT|G
+|root||cloud_admin||DELETE|G
+|root||role_admin||DELETE|G
+|root||s49scd8yqRkHgCX.playground||DELETE|G
+|root||s49scd8yqRkHgCX.root||DELETE|G
+|root||cloud_admin||DROP|G
+|root||role_admin||DROP|G
+|root||s49scd8yqRkHgCX.playground||DROP|G
+|root||s49scd8yqRkHgCX.root||DROP|G
+|root||role_admin||DROP ROLE|G
+|root||s49scd8yqRkHgCX.root||DROP ROLE|G
+|root||role_admin||EVENT|G
+|root||s49scd8yqRkHgCX.root||EVENT|G
+|root||role_admin||EXECUTE|G
+|root||s49scd8yqRkHgCX.root||EXECUTE|G
+|root||role_admin||FILE|G
+|root||s49scd8yqRkHgCX.root||FILE|G
+|root||cloud_admin||INDEX|G
+|root||role_admin||INDEX|G
+|root||s49scd8yqRkHgCX.playground||INDEX|G
+|root||s49scd8yqRkHgCX.root||INDEX|G
+|root||cloud_admin||INSERT|G
+|root||role_admin||INSERT|G
+|root||s49scd8yqRkHgCX.playground||INSERT|G
+|root||s49scd8yqRkHgCX.root||INSERT|G
+|root||role_admin||LOCK TABLES|G
+|root||s49scd8yqRkHgCX.root||LOCK TABLES|G
+|root||cloud_admin||PROCESS|G
+|root||role_admin||PROCESS|G
+|root||s49scd8yqRkHgCX.playground||PROCESS|G
+|root||s49scd8yqRkHgCX.root||PROCESS|G
+|root||cloud_admin||REFERENCES|G
+|root||role_admin||REFERENCES|G
+|root||s49scd8yqRkHgCX.root||REFERENCES|G
+|root||cloud_admin||RELOAD|G
+|root||role_admin||RELOAD|G
+|root||s49scd8yqRkHgCX.root||RELOAD|G
+|root||role_admin||REPLICATION CLIENT|G
+|root||s49scd8yqRkHgCX.root||REPLICATION CLIENT|G
+|root||role_admin||REPLICATION SLAVE|G
+|root||s49scd8yqRkHgCX.root||REPLICATION SLAVE|G
+|root||cloud_admin||RESTORE_ADMIN|G
+|root||cloud_admin||RESTRICTED_CONNECTION_ADMIN|G
+|root||cloud_admin||RESTRICTED_REPLICA_WRITER_ADMIN|G
+|root||cloud_admin||RESTRICTED_STATUS_ADMIN|G
+|root||cloud_admin||RESTRICTED_TABLES_ADMIN|G
+|root||cloud_admin||RESTRICTED_USER_ADMIN|G
+|root||cloud_admin||RESTRICTED_VARIABLES_ADMIN|G
+|root||role_admin||ROLE_ADMIN|G
+|root||cloud_admin||SELECT|G
+|root||role_admin||SELECT|G
+|root||s49scd8yqRkHgCX.playground||SELECT|G
+|root||s49scd8yqRkHgCX.root||SELECT|G
+|root||cloud_admin||SHOW DATABASES|G
+|root||role_admin||SHOW DATABASES|G
+|root||s49scd8yqRkHgCX.playground||SHOW DATABASES|G
+|root||s49scd8yqRkHgCX.root||SHOW DATABASES|G
+|root||role_admin||SHOW VIEW|G
+|root||s49scd8yqRkHgCX.root||SHOW VIEW|G
+|root||cloud_admin||SHUTDOWN|G
+|root||role_admin||SUPER|G
+|root||s49scd8yqRkHgCX.root||SUPER|G
+|root||cloud_admin||SYSTEM_USER|G
+|root||cloud_admin||SYSTEM_VARIABLES_ADMIN|G
+|root||role_admin||TRIGGER|G
+|root||s49scd8yqRkHgCX.root||TRIGGER|G
+|root||cloud_admin||UPDATE|G
+|root||role_admin||UPDATE|G
+|root||s49scd8yqRkHgCX.playground||UPDATE|G
+|root||s49scd8yqRkHgCX.root||UPDATE|G
+|root||cloud_admin||grant option|G
+|root||role_admin||grant option|G
+|root||s49scd8yqRkHgCX.root||grant option|G</Grants>
+      <ServerVersion>6.6.0</ServerVersion>
+    </root>
+    <collation id="2" parent="1" name="ascii_bin">
+      <Charset>ascii</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="3" parent="1" name="binary">
+      <Charset>binary</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="4" parent="1" name="gbk_bin">
+      <Charset>gbk</Charset>
+    </collation>
+    <collation id="5" parent="1" name="gbk_chinese_ci">
+      <Charset>gbk</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="6" parent="1" name="latin1_bin">
+      <Charset>latin1</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="7" parent="1" name="utf8_bin">
+      <Charset>utf8</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="8" parent="1" name="utf8_general_ci">
+      <Charset>utf8</Charset>
+    </collation>
+    <collation id="9" parent="1" name="utf8_unicode_ci">
+      <Charset>utf8</Charset>
+    </collation>
+    <collation id="10" parent="1" name="utf8mb4_bin">
+      <Charset>utf8mb4</Charset>
+      <DefaultForCharset>1</DefaultForCharset>
+    </collation>
+    <collation id="11" parent="1" name="utf8mb4_general_ci">
+      <Charset>utf8mb4</Charset>
+    </collation>
+    <collation id="12" parent="1" name="utf8mb4_unicode_ci">
+      <Charset>utf8mb4</Charset>
+    </collation>
+    <schema id="13" parent="1" name="INFORMATION_SCHEMA">
+      <CollationName>utf8mb4_bin</CollationName>
+    </schema>
+    <schema id="14" parent="1" name="PERFORMANCE_SCHEMA">
+      <CollationName>utf8mb4_bin</CollationName>
+    </schema>
+    <schema id="15" parent="1" name="mysql">
+      <CollationName>utf8mb4_bin</CollationName>
+    </schema>
+    <schema id="16" parent="1" name="sample_data">
+      <CollationName>utf8mb4_bin</CollationName>
+    </schema>
+    <schema id="17" parent="1" name="test">
+      <Current>1</Current>
+      <CollationName>utf8mb4_bin</CollationName>
+    </schema>
+    <user id="18" parent="1" name="cloud_admin"/>
+    <user id="19" parent="1" name="role_admin"/>
+    <user id="20" parent="1" name="s49scd8yqRkHgCX.playground"/>
+    <user id="21" parent="1" name="s49scd8yqRkHgCX.root"/>
+    <user id="22" parent="1" name="s49scd8yqRkHgCX.rubygr_SMaR41ZQ">
+      <Plugin>tidb_auth_token</Plugin>
+    </user>
+    <table id="23" parent="17" name="article">
+      <Comment>文章列表</Comment>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_bin</CollationName>
+    </table>
+    <table id="24" parent="17" name="change_logs">
+      <Comment>修改日志</Comment>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_bin</CollationName>
+    </table>
+    <table id="25" parent="17" name="class">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_bin</CollationName>
+    </table>
+    <table id="26" parent="17" name="tmp_userlocation">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_bin</CollationName>
+    </table>
+    <table id="27" parent="17" name="user">
+      <Comment>用户表</Comment>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_bin</CollationName>
+    </table>
+    <table id="28" parent="17" name="user_bak">
+      <Comment>用户表_bak</Comment>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_bin</CollationName>
+    </table>
+    <table id="29" parent="17" name="user_login_method">
+      <Comment>用户登录验证表</Comment>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_bin</CollationName>
+    </table>
+    <table id="30" parent="17" name="workclass">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_bin</CollationName>
+    </table>
+    <column id="31" parent="23" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <Comment>自增主键</Comment>
+      <DasType>bigint(20)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="32" parent="23" name="title">
+      <Comment>文章标题</Comment>
+      <DasType>varchar(20)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="33" parent="23" name="body">
+      <Comment>文章内容</Comment>
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="34" parent="23" name="last_change_time">
+      <Comment>最后一次修改时间</Comment>
+      <DasType>datetime|0s</DasType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="35" parent="23" name="author_id">
+      <Comment>作者</Comment>
+      <DasType>bigint(20)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <index id="36" parent="23" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="37" parent="23" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="38" parent="24" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <Comment>自增主键</Comment>
+      <DasType>bigint(20)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="39" parent="24" name="author_id">
+      <Comment>作者</Comment>
+      <DasType>bigint(20)|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="40" parent="24" name="artical_id">
+      <Comment>文章</Comment>
+      <DasType>bigint(20)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="41" parent="24" name="modify_content">
+      <Comment>修改内容</Comment>
+      <DasType>varchar(255)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="42" parent="24" name="create_time">
+      <Comment>修改日期</Comment>
+      <DasType>datetime|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <index id="43" parent="24" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="44" parent="24" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="45" parent="25" name="表名">
+      <DasType>text|0s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="46" parent="25" name="表备注">
+      <DasType>text|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="47" parent="25" name="一级目录">
+      <DasType>text|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="48" parent="25" name="二级目录">
+      <DasType>text|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="49" parent="25" name="三级目录">
+      <DasType>text|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="50" parent="25" name="物理模型分域四级目录">
+      <DasType>text|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="51" parent="26" name="Id">
+      <AutoIncrement>1</AutoIncrement>
+      <Comment>自增主键</Comment>
+      <DasType>bigint(20) unsigned|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="52" parent="26" name="LocationTime">
+      <Comment>定位时间</Comment>
+      <DasType>timestamp(3)|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="53" parent="26" name="LoginName">
+      <Comment>登录名</Comment>
+      <DasType>varchar(50)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="54" parent="26" name="UserName">
+      <Comment>姓名</Comment>
+      <DasType>varchar(50)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="55" parent="26" name="Lat">
+      <Comment>纬度</Comment>
+      <DasType>decimal(10,7 digit)|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="56" parent="26" name="Lng">
+      <Comment>经度</Comment>
+      <DasType>decimal(10,7 digit)|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="57" parent="26" name="Speed">
+      <Comment>速度</Comment>
+      <DasType>decimal(10,2 digit)|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <column id="58" parent="26" name="Address">
+      <Comment>详细地址</Comment>
+      <DasType>varchar(500)|0s</DasType>
+      <Position>8</Position>
+    </column>
+    <column id="59" parent="26" name="DeviceIMEI">
+      <Comment>手机imei</Comment>
+      <DasType>varchar(50)|0s</DasType>
+      <Position>9</Position>
+    </column>
+    <column id="60" parent="26" name="DeviceModel">
+      <Comment>设备型号</Comment>
+      <DasType>varchar(100)|0s</DasType>
+      <Position>10</Position>
+    </column>
+    <column id="61" parent="26" name="DeviceType">
+      <Comment>设备类型（0Android,1IOS）</Comment>
+      <DasType>smallint(6)|0s</DasType>
+      <Position>11</Position>
+    </column>
+    <index id="62" parent="26" name="PRIMARY">
+      <ColNames>Id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="63" parent="26" name="NON-LocationTime">
+      <ColNames>LocationTime</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="64" parent="26" name="NON-LoginName">
+      <ColNames>LoginName</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="65" parent="26" name="NON-DeviceIMEI">
+      <ColNames>DeviceIMEI</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="66" parent="26" name="NON-DeviceModel">
+      <ColNames>DeviceModel</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="67" parent="26" name="NON-DeviceType">
+      <ColNames>DeviceType</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="68" parent="26" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="69" parent="27" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <Comment>自增主键</Comment>
+      <DasType>bigint(20)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="70" parent="27" name="name">
+      <Comment>用户姓名</Comment>
+      <DasType>varchar(20)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="71" parent="27" name="age">
+      <Comment>用户年龄</Comment>
+      <DasType>int(11)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <index id="72" parent="27" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="73" parent="27" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="74" parent="28" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <Comment>自增主键</Comment>
+      <DasType>bigint(20)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="75" parent="28" name="name">
+      <Comment>用户姓名</Comment>
+      <DasType>varchar(20)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="76" parent="28" name="age">
+      <Comment>用户年龄</Comment>
+      <DasType>int(11)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <index id="77" parent="28" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="78" parent="28" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="79" parent="29" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <Comment>用户登录方式主键ID</Comment>
+      <DasType>bigint(20)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="80" parent="29" name="user_id">
+      <Comment>用户主键ID</Comment>
+      <DasType>int(11)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="81" parent="29" name="login_method">
+      <Comment>用户登录方式，WX微信，P手机</Comment>
+      <DasType>varchar(36)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="82" parent="29" name="identification">
+      <Comment>用户登录标识，微信ID或手机号</Comment>
+      <DasType>varchar(36)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="83" parent="29" name="access_code">
+      <Comment>用户登录通行码，密码或token</Comment>
+      <DasType>varchar(36)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <index id="84" parent="29" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="85" parent="29" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="86" parent="30" name="一级目录">
+      <DasType>text|0s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="87" parent="30" name="二级目录">
+      <DasType>text|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="88" parent="30" name="三级目录">
+      <DasType>text|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="89" parent="30" name="四级目录">
+      <DasType>text|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="90" parent="30" name="数据类型名称">
+      <DasType>text|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="91" parent="30" name="业务实体属性关系">
+      <DasType>text|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="92" parent="30" name="原始字段注释">
+      <DasType>text|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <column id="93" parent="30" name="数据分级">
+      <DasType>text|0s</DasType>
+      <Position>8</Position>
+    </column>
+    <column id="94" parent="30" name="是否敏感">
+      <DasType>text|0s</DasType>
+      <Position>9</Position>
+    </column>
+    <column id="95" parent="30" name="数据特征">
+      <DasType>text|0s</DasType>
+      <Position>10</Position>
+    </column>
+    <column id="96" parent="30" name="特征命中率">
+      <DasType>text|0s</DasType>
+      <Position>11</Position>
+    </column>
+    <column id="97" parent="30" name="是否脱敏">
+      <DasType>text|0s</DasType>
+      <Position>12</Position>
+    </column>
+    <column id="98" parent="30" name="是否加密">
+      <DasType>text|0s</DasType>
+      <Position>13</Position>
+    </column>
+  </database-model>
+</dataSource>

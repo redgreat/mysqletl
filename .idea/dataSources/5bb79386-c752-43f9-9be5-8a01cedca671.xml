@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="TiDB-Cloud">
-  <database-model serializer="dbm" dbms="TIDB" family-id="TIDB" format-version="4.41">
+<dataSource name="TCloud@gmail">
+  <database-model serializer="dbm" dbms="TIDB" family-id="TIDB" format-version="4.48">
     <root id="1">
       <Dbms>TIDB</Dbms>
       <DefaultCasing>mixed/mixed</DefaultCasing>

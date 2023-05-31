@@ -11,7 +11,7 @@
         <property name="sslMode" value="DISABLED" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="TiDB-Cloud" uuid="5bb79386-c752-43f9-9be5-8a01cedca671">
+    <data-source source="LOCAL" name="TCloud@gmail" uuid="5bb79386-c752-43f9-9be5-8a01cedca671">
       <driver-ref>tidb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
@@ -19,6 +19,26 @@
       <working-dir>$ProjectFileDir$</working-dir>
       <driver-properties>
         <property name="sslMode" value="DISABLED" />
+      </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="壹好车服测试库" uuid="a48c62cc-a1e9-4e44-bc9f-6e5b1dd16bf8">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://pc-bp1zip05gl1b1ga3veo.rwlb.rds.aliyuncs.com:3306/serviceordercenter</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="TiCloud@msn" uuid="efdf4043-218b-4007-9904-1b40170af91b">
+      <driver-ref>tidb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://gateway01.us-east-1.prod.aws.tidbcloud.com:4000/test</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+      <driver-properties>
+        <property name="enabledTLSProtocols" value="TLSv1.2,TLSv1.3" />
+        <property name="requireSSL" value="FALSE" />
+        <property name="sslMode" value="VERIFY_IDENTITY" />
+        <property name="useSSL" value="FALSE" />
       </driver-properties>
     </data-source>
   </component>

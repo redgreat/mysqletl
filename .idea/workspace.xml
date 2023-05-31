@@ -1,25 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="bb26b177-782c-4a1b-a879-366ca36c325d" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/mysqletl.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mysqletl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/a48c62cc-a1e9-4e44-bc9f-6e5b1dd16bf8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/a48c62cc-a1e9-4e44-bc9f-6e5b1dd16bf8/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/a48c62cc-a1e9-4e44-bc9f-6e5b1dd16bf8/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/efdf4043-218b-4007-9904-1b40170af91b.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/efdf4043-218b-4007-9904-1b40170af91b/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mysql2tidb.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/testtidb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5bb79386-c752-43f9-9be5-8a01cedca671.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5bb79386-c752-43f9-9be5-8a01cedca671.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ee42f802-e937-4e37-ad16-0be3b4a98d57.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ee42f802-e937-4e37-ad16-0be3b4a98d57.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ee42f802-e937-4e37-ad16-0be3b4a98d57/storage_v2/_src_/schema/whcenter.ZrrmdQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ee42f802-e937-4e37-ad16-0be3b4a98d57/storage_v2/_src_/schema/whcenter.ZrrmdQ.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mysqletl.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mysqletl.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ptetltest.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/test/ptetltest.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ee42f802-e937-4e37-ad16-0be3b4a98d57/console.sql" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/mysqletl.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/mysql2tidb.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/test/testtidb.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -40,8 +61,15 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/github/mysql2td",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/wangcw/Documents/github/mysqletl",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -88,6 +116,7 @@
       <option name="presentableId" value="Default" />
       <updated>1665214520604</updated>
       <workItem from="1665214524178" duration="9421000" />
+      <workItem from="1685416520378" duration="19781000" />
     </task>
     <servers />
   </component>
@@ -106,6 +135,8 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/mysqletl$mysqletl.coverage" NAME="mysqletl 覆盖结果" MODIFIED="1665223220839" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mysqletl$mysqletl.coverage" NAME="mysqletl 覆盖结果" MODIFIED="1685417424092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/mysqletl$mysql2tidb.coverage" NAME="mysql2tidb 覆盖结果" MODIFIED="1685494965502" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/mysqletl$testtidb.coverage" NAME="testtidb 覆盖结果" MODIFIED="1685494943788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
   </component>
 </project>
